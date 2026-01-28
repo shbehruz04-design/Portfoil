@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | BDex group</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="admin-logo">
+                    <img src="./logo.svg" alt="BDex group Logo">
+                </div>
+                <h1>Admin Panel</h1>
+                <p>BDex group - Portfolio Management</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <div id="loginError" class="error-message"></div>
+            </form>
+            <div class="login-footer">
+                <a href="index.html">← Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard hidden">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="admin-header-content">
+                <div class="admin-brand">
+                    <img src="./logo.svg" alt="BDex group Logo" class="header-logo">
+                    <span>BDex group Admin</span>
+                </div>
+                <div class="admin-actions">
+                    <button id="saveAllBtn" class="btn btn-primary">Save All Changes</button>
+                    <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-container">
+                <!-- Hero Section Editor -->
+                <section class="admin-section">
+                    <h2 class="section-title">Hero Section</h2>
+                    <div class="editor-card">
+                        <div class="form-group">
+                            <label for="heroName">Name</label>
+                            <input type="text" id="heroName" value="Bexruz" data-target=".name">
+                        </div>
+                        <div class="form-group">
+                            <label for="heroMotto">Motto</label>
+                            <input type="text" id="heroMotto" value="We build, develop and explore" data-target=".hero-motto">
+                        </div>
+                        <div class="form-group">
+                            <label for="heroRole">Role (comma-separated for typing effect)</label>
+                            <input type="text" id="heroRole" value="Full Stack Developer,UI/UX Designer,Problem Solver,Tech Enthusiast" data-target=".typing-text">
+                        </div>
+                        <div class="form-group">
+                            <label for="heroDescription">Description</label>
+                            <textarea id="heroDescription" rows="3" data-target=".hero-description">Crafting digital experiences with cutting-edge technology. Specialized in building scalable web applications and innovative solutions.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section Editor -->
+                <section class="admin-section">
+                    <h2 class="section-title">About Section</h2>
+                    <div class="editor-card">
+                        <div class="form-group">
+                            <label for="aboutIntro">Introduction</label>
+                            <textarea id="aboutIntro" rows="2" data-target=".about-intro">I'm a passionate developer with a love for creating elegant solutions to complex problems.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="aboutText1">Paragraph 1</label>
+                            <textarea id="aboutText1" rows="3" data-target=".about-text p:nth-of-type(2)">With over 5 years of experience in web development, I specialize in building modern, responsive applications using the latest technologies. My approach combines clean code, user-centered design, and performance optimization.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="aboutText2">Paragraph 2</label>
+                            <textarea id="aboutText2" rows="3" data-target=".about-text p:nth-of-type(3)">When I'm not coding, you'll find me exploring new frameworks, contributing to open-source projects, or sharing knowledge with the developer community.</textarea>
+                        </div>
+                        <div class="stats-editor">
+                            <h3>Statistics</h3>
+                            <div class="stats-grid">
+                                <div class="stat-editor">
+                                    <label>Projects Completed</label>
+                                    <input type="number" id="statProjects" value="50" data-target=".stat-item:nth-child(1) .stat-number" data-attr="data-target">
+                                </div>
+                                <div class="stat-editor">
+                                    <label>Years Experience</label>
+                                    <input type="number" id="statYears" value="5" data-target=".stat-item:nth-child(2) .stat-number" data-attr="data-target">
+                                </div>
+                                <div class="stat-editor">
+                                    <label>Happy Clients</label>
+                                    <input type="number" id="statClients" value="30" data-target=".stat-item:nth-child(3) .stat-number" data-attr="data-target">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Skills Editor -->
+                <section class="admin-section">
+                    <h2 class="section-title">Skills Section</h2>
+                    <div class="editor-card">
+                        <div id="skillsEditor" class="skills-editor">
+                            <!-- Skills will be dynamically loaded here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Editor -->
+                <section class="admin-section">
+                    <h2 class="section-title">Projects Section</h2>
+                    <div class="editor-card">
+                        <div id="projectsEditor" class="projects-editor">
+                            <!-- Projects will be dynamically loaded here -->
+                        </div>
+                        <button id="addProjectBtn" class="btn btn-secondary">+ Add New Project</button>
+                    </div>
+                </section>
+
+                <!-- Contact Section Editor -->
+                <section class="admin-section">
+                    <h2 class="section-title">Contact Section</h2>
+                    <div class="editor-card">
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" value="hello@example.com" data-target=".contact-item:nth-child(1) a">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone</label>
+                            <input type="tel" id="contactPhone" value="+1 (234) 567-890" data-target=".contact-item:nth-child(2) a">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactLocation">Location</label>
+                            <input type="text" id="contactLocation" value="San Francisco, CA" data-target=".contact-item:nth-child(3) span">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactDescription">Description</label>
+                            <textarea id="contactDescription" rows="3" data-target=".contact-description">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!</textarea>
+                        </div>
+                        <div class="form-group">
+                            <h3 style="margin-top: 1.5rem; margin-bottom: 1rem; color: var(--admin-accent);">Social Media Links</h3>
+                            <label for="socialGitHub">GitHub URL</label>
+                            <input type="url" id="socialGitHub" placeholder="https://github.com/yourusername" data-target=".social-link[aria-label='GitHub'], .social-icon[aria-label='GitHub']">
+                        </div>
+                        <div class="form-group">
+                            <label for="socialLinkedIn">LinkedIn URL</label>
+                            <input type="url" id="socialLinkedIn" placeholder="https://linkedin.com/in/yourusername" data-target=".social-link[aria-label='LinkedIn'], .social-icon[aria-label='LinkedIn']">
+                        </div>
+                        <div class="form-group">
+                            <label for="socialTwitter">Twitter URL</label>
+                            <input type="url" id="socialTwitter" placeholder="https://twitter.com/yourusername" data-target=".social-link[aria-label='Twitter'], .social-icon[aria-label='Twitter']">
+                        </div>
+                        <div class="form-group">
+                            <label for="socialDribbble">Dribbble URL</label>
+                            <input type="url" id="socialDribbble" placeholder="https://dribbble.com/yourusername" data-target=".social-icon[aria-label='Dribbble']">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Messages Viewer -->
+                <section class="admin-section">
+                    <h2 class="section-title">Contact Messages</h2>
+                    <div class="editor-card">
+                        <div id="messagesList" class="messages-list">
+                            <p class="empty-state">No messages yet. Messages from the contact form will appear here.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

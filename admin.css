@@ -1,0 +1,541 @@
+/* ============================================
+   Admin Panel Styles
+   ============================================ */
+:root {
+    --admin-bg: #0a0e27;
+    --admin-card: #1a1f3a;
+    --admin-border: rgba(0, 208, 255, 0.2);
+    --admin-accent: rgb(0, 208, 255);
+    --admin-text: #ffffff;
+    --admin-text-muted: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   Login Screen
+   ============================================ */
+.login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--admin-bg) 0%, #1a1f3a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-screen::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 208, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -250px;
+    right: -250px;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.login-container {
+    background: rgba(26, 31, 58, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--admin-border);
+    border-radius: 20px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.admin-logo img {
+    height: 70px;
+    width: auto;
+    max-width: 250px;
+    margin-bottom: 1rem;
+}
+
+.login-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--admin-accent), #093FB4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.login-header p {
+    color: var(--admin-text-muted);
+    font-size: 0.9rem;
+}
+
+.login-form {
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--admin-text);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    color: var(--admin-text);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 3px rgba(0, 208, 255, 0.1);
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    width: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--admin-accent), #093FB4);
+    color: var(--admin-text);
+    box-shadow: 0 4px 15px rgba(0, 208, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 208, 255, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--admin-accent);
+    border: 2px solid var(--admin-accent);
+}
+
+.btn-secondary:hover {
+    background: var(--admin-accent);
+    color: var(--admin-bg);
+}
+
+.error-message {
+    margin-top: 1rem;
+    padding: 12px;
+    background: rgba(246, 32, 17, 0.1);
+    border: 1px solid rgba(246, 32, 17, 0.3);
+    border-radius: 10px;
+    color: #f62011;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.login-footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.login-footer a {
+    color: var(--admin-accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   Dashboard
+   ============================================ */
+.dashboard {
+    min-height: 100vh;
+}
+
+.admin-header {
+    background: rgba(26, 31, 58, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--admin-border);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.admin-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-logo {
+    height: 45px;
+    width: auto;
+    max-width: 200px;
+}
+
+.admin-brand span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--admin-accent);
+}
+
+.admin-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.admin-actions .btn {
+    width: auto;
+    padding: 10px 20px;
+}
+
+.admin-main {
+    padding: 2rem 0;
+}
+
+.admin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ============================================
+   Admin Sections
+   ============================================ */
+.admin-section {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--admin-accent);
+    font-weight: 600;
+}
+
+.editor-card {
+    background: var(--admin-card);
+    border: 1px solid var(--admin-border);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.editor-card:hover {
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 20px rgba(0, 208, 255, 0.1);
+}
+
+.stats-editor {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--admin-border);
+}
+
+.stats-editor h3 {
+    margin-bottom: 1rem;
+    color: var(--admin-text);
+    font-size: 1.2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.stat-editor label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--admin-text-muted);
+    font-size: 0.9rem;
+}
+
+.stat-editor input {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    color: var(--admin-text);
+    font-size: 1rem;
+}
+
+/* ============================================
+   Skills Editor
+   ============================================ */
+.skills-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-category-editor {
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+}
+
+.skill-category-editor h4 {
+    margin-bottom: 1rem;
+    color: var(--admin-accent);
+    font-size: 1.1rem;
+}
+
+.skill-item-editor {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.skill-item-editor .form-group {
+    margin-bottom: 0.5rem;
+}
+
+.skill-item-editor input[type="text"],
+.skill-item-editor input[type="number"] {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   Projects Editor
+   ============================================ */
+.projects-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-editor {
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    position: relative;
+}
+
+.project-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.project-editor-header h4 {
+    color: var(--admin-accent);
+    font-size: 1.1rem;
+}
+
+.delete-project-btn {
+    padding: 6px 12px;
+    background: rgba(246, 32, 17, 0.1);
+    border: 1px solid rgba(246, 32, 17, 0.3);
+    color: #f62011;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.delete-project-btn:hover {
+    background: rgba(246, 32, 17, 0.2);
+    border-color: #f62011;
+}
+
+.project-editor .form-group textarea {
+    min-height: 80px;
+}
+
+.tech-tags-editor {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tech-tag-input {
+    padding: 6px 12px;
+    background: rgba(0, 208, 255, 0.1);
+    border: 1px solid var(--admin-border);
+    border-radius: 15px;
+    color: var(--admin-accent);
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tech-tag-input input {
+    background: transparent;
+    border: none;
+    color: var(--admin-text);
+    font-size: 0.85rem;
+    width: 80px;
+    padding: 0;
+}
+
+.tech-tag-input .remove-tag {
+    cursor: pointer;
+    color: #f62011;
+    font-weight: bold;
+}
+
+/* ============================================
+   Messages List
+   ============================================ */
+.messages-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.message-item {
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--admin-border);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.message-info h4 {
+    color: var(--admin-accent);
+    margin-bottom: 0.3rem;
+}
+
+.message-info p {
+    color: var(--admin-text-muted);
+    font-size: 0.85rem;
+}
+
+.message-date {
+    color: var(--admin-text-muted);
+    font-size: 0.8rem;
+}
+
+.message-content {
+    color: var(--admin-text);
+    line-height: 1.6;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--admin-text-muted);
+    padding: 3rem;
+    font-style: italic;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+
+    .admin-header-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .admin-actions {
+        width: 100%;
+    }
+
+    .admin-actions .btn {
+        flex: 1;
+    }
+
+    .admin-container {
+        padding: 0 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .editor-card {
+        padding: 1.5rem;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}

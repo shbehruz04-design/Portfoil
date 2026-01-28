@@ -1,0 +1,119 @@
+<svg width="200" height="120" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Golden Metallic Gradient for BDex -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="20%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#B8860B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B6914;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Lighter Golden Gradient for highlights -->
+    <linearGradient id="goldHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF8DC;stop-opacity:0.9" />
+      <stop offset="30%" style="stop-color:#FFD700;stop-opacity:0.8" />
+      <stop offset="70%" style="stop-color:#D4AF37;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#8B6914;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <!-- Darker Golden Gradient for GROUP -->
+    <linearGradient id="goldGroup" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:0.85" />
+      <stop offset="100%" style="stop-color:#B8860B;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- Metallic shine effect -->
+    <linearGradient id="metallicShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.6" />
+      <stop offset="50%" style="stop-color:#FFD700;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#8B6914;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <!-- Shadow filter for depth -->
+    <filter id="textShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="1" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Glow effect -->
+    <filter id="goldGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- 3D emboss effect -->
+    <filter id="emboss">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="1.5" specularExponent="20" lighting-color="#FFD700">
+        <fePointLight x="50" y="20" z="100"/>
+      </feSpecularLighting>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+  </defs>
+  
+  <!-- BDex Text - Large Serif Font with Metallic Effect -->
+  <text 
+    x="100" 
+    y="60" 
+    font-family="Georgia, 'Times New Roman', serif" 
+    font-size="48" 
+    font-weight="700" 
+    text-anchor="middle"
+    fill="url(#goldGradient)"
+    filter="url(#textShadow) url(#goldGlow)"
+    style="letter-spacing: 2px;">
+    BDex
+  </text>
+  
+  <!-- Metallic shine overlay for BDex -->
+  <text 
+    x="100" 
+    y="60" 
+    font-family="Georgia, 'Times New Roman', serif" 
+    font-size="48" 
+    font-weight="700" 
+    text-anchor="middle"
+    fill="url(#metallicShine)"
+    style="letter-spacing: 2px; opacity: 0.4;">
+    BDex
+  </text>
+  
+  <!-- -GROUP Text - Smaller Sans-serif Font -->
+  <text 
+    x="100" 
+    y="90" 
+    font-family="'Arial', 'Helvetica', sans-serif" 
+    font-size="18" 
+    font-weight="600" 
+    text-anchor="middle"
+    fill="url(#goldGroup)"
+    filter="url(#textShadow)"
+    style="letter-spacing: 1px;">
+    -GROUP
+  </text>
+  
+  <!-- Subtle shine overlay for GROUP -->
+  <text 
+    x="100" 
+    y="90" 
+    font-family="'Arial', 'Helvetica', sans-serif" 
+    font-size="18" 
+    font-weight="600" 
+    text-anchor="middle"
+    fill="url(#metallicShine)"
+    style="letter-spacing: 1px; opacity: 0.3;">
+    -GROUP
+  </text>
+</svg>
